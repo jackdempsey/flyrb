@@ -15,11 +15,11 @@ module Flyrb
       
       gist_url = req['Location']
       Clipboard.write(gist_url) if Clipboard.available?
-      open(gist_url)
+      open_url(gist_url)
     end
     
     private
-      def open(url)
+      def open_url(url)
         case Platform::IMPL
         when :macosx
           Kernel.system("open #{url}")
